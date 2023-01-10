@@ -23,7 +23,7 @@ class MemberServiceIntegrationTest {
     void join() {
         //given
         Member member=new Member();
-        member.setName("testname");
+        member.setName("testname1");
 
         //when
         Long saveId=memberService.join(member);
