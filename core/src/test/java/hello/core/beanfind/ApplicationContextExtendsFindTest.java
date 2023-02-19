@@ -20,14 +20,14 @@ public class ApplicationContextExtendsFindTest {
     @Test
     @DisplayName("parent")
     void findBeanByParentType(){
-        DiscountPolicy bean =ac.getBean(DiscountPolicy.class);
+        //DiscountPolicy bean =ac.getBean(DiscountPolicy.class);
         assertThrows(NoUniqueBeanDefinitionException.class,()->
                 ac.getBean(DiscountPolicy.class));
     }
     @Test
     @DisplayName("parent Duplicate")
     void findBeanByParentTypeBeanName(){
-        DiscountPolicy rate = ac.getBean("rate", DiscountPolicy.class);
+        DiscountPolicy rate = ac.getBean("rateDiscountPolicy", DiscountPolicy.class);
         assertThat(rate).isInstanceOf(RateDiscountPolicy.class);
     }
     @Configuration
