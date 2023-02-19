@@ -10,6 +10,7 @@ public class SingletonTest {
     @Test
     @DisplayName("no spring di container")
     void pureContainer(){
+
         AppConfig appConfig=new AppConfig();
 
         MemberService memberService1 = appConfig.memberService();
@@ -19,9 +20,19 @@ public class SingletonTest {
         System.out.println("memberService1="+memberService1);
         System.out.println("memberService2="+memberService2);
 
-        
+
         //memberService1 !=memberService2
         Assertions.assertThat(memberService1).isNotSameAs(memberService2);
+    }
+    @Test
+    @DisplayName("Singletone object")
+    void singletonServiceTest(){
+        SingletonService singletonService1=SingletonService.getInstance();
+        SingletonService singletonService2=SingletonService.getInstance();
 
+        System.out.println("singletonService1="+singletonService1);
+        System.out.println("singletonService2="+singletonService2);
+
+        Assertions.assertThat(singletonService1).isSameAs(singletonService2);
     }
 }
